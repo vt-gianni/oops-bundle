@@ -19,8 +19,3 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
-
-    VTGianni\OopsBundle\Service\OopsService:
-        public: true
-        autoconfigure: true
-        autowire: true
