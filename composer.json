@@ -14,7 +14,7 @@
     "require": {
         "php": ">=7.4",
         "symfony/framework-bundle": ">=5.4",
-        "doctrine/orm": "^2.15"
+        "doctrine/orm": ">=2.13"
     },
     "autoload": {
         "psr-4": {
