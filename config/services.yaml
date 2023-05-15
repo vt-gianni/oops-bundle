@@ -22,8 +22,10 @@ services:
 
     VTGianni\OopsBundle\Repository\OopsRepository:
         autowire: true
+        autoconfigure: true
         tags:
             - { name: doctrine.repository_service }
 
     VTGianni\OopsBundle\Service\OopsService:
         autowire: true
+        autoconfigure: true
