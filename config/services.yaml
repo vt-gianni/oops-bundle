@@ -19,3 +19,11 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+
+    VTGianni\OopsBundle\Repository\OopsRepository:
+        autowire: true
+        tags:
+            - { name: doctrine.repository_service }
+
+    VTGianni\OopsBundle\Service\OopsService:
+        autowire: true
