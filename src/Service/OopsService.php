@@ -69,4 +69,15 @@ class OopsService
             $limit
         );
     }
+
+    /**
+     * @param int $nb
+     * @return int
+     */
+    public function getNbErrors(int $nb = 7): int
+    {
+        $date = (new \DateTime())->modify('-' . $nb . ' days');
+
+        return $this->repository->getNbErrors($date);
+    }
 }

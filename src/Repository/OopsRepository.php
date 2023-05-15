@@ -2,6 +2,7 @@
 
 namespace VTGianni\OopsBundle\Repository;
 
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use VTGianni\OopsBundle\Entity\Oops;
@@ -37,6 +38,20 @@ class OopsRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    /**
+     * @param DateTime $date
+     * @return mixed
+     */
+    public function getNbErrors(DateTime $date)
+    {
+        return $this->createQueryBuilder('o')
+        ->select('count(o.id)')
+        ->where('o.incidentDate > :date')
+        ->setParameter('date', $date)
+        ->getQuery()
+        ->getSingleScalarResult();
     }
 
 //    /**
