@@ -22,3 +22,5 @@ services:
 
     VTGianni\OopsBundle\Service\OopsService:
         public: true
+        autoconfigure: true
+        autowire: true
