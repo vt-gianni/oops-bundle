@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use VTGianni\OopsBundle\Repository\OopsRepository;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\OopsRepository")
+ * @ORM\Entity(repositoryClass="VTGianni\OopsBundle\Repository\OopsRepository")
  */
 class Oops
 {
