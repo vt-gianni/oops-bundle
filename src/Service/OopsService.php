@@ -7,17 +7,16 @@ namespace VTGianni\OopsBundle\Service;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use VTGianni\OopsBundle\Entity\Oops;
-use VTGianni\OopsBundle\Repository\OopsRepository;
 
 class OopsService
 {
-    private OopsRepository $repository;
     private EntityManagerInterface $entityManager;
+    private $repository;
 
-    public function __construct(OopsRepository $repository, EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager)
     {
-        $this->repository = $repository;
         $this->entityManager = $entityManager;
+        $this->repository = $entityManager->getRepository(Oops::class);
     }
 
     /**
