@@ -12,8 +12,9 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.0",
-        "symfony/framework-bundle": ">=5.4"
+        "php": ">=7.4",
+        "symfony/framework-bundle": ">=5.4",
+        "doctrine/orm": "^2.15"
     },
     "autoload": {
         "psr-4": {
@@ -23,7 +24,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.2.*"
+            "require": ">=5.4"
         }
     },
     "config": {

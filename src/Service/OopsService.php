@@ -11,8 +11,13 @@ use VTGianni\OopsBundle\Repository\OopsRepository;
 
 class OopsService
 {
-    public function __construct(private OopsRepository $repository, private EntityManagerInterface $entityManager)
+    private OopsRepository $repository;
+    private EntityManagerInterface $entityManager;
+
+    public function __construct(OopsRepository $repository, EntityManagerInterface $entityManager)
     {
+        $this->repository = $repository;
+        $this->entityManager = $entityManager;
     }
 
     /**

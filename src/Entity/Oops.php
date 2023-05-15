@@ -6,34 +6,52 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use VTGianni\OopsBundle\Repository\OopsRepository;
 
-#[ORM\Entity(repositoryClass: OopsRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\OopsRepository")
+ */
 class Oops
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
 
-    #[ORM\Column(length: 255)]
-    private ?string $url = null;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $url;
 
-    #[ORM\Column]
-    private ?int $error = null;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private ?int $error;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $errorMessage = null;
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private ?string $errorMessage;
 
-    #[ORM\Column(nullable: true)]
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
     private ?array $headers = [];
 
-    #[ORM\Column(nullable: true)]
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
     private ?array $requestBody = [];
 
-    #[ORM\Column(nullable: true)]
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
     private ?array $responseContent = [];
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $incidentDate = null;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private ?\DateTimeInterface $incidentDate;
 
     public function getId(): ?int
     {
