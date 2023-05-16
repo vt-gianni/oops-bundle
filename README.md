@@ -82,7 +82,7 @@ $this->oopsService->filterErrors(
 To count errors, please use the countErrors method of OopsBundle:
 
 ```php
-$this->oopsService->filterErrors(
+$this->oopsService->countErrors(
     $nbDays, // optional int, default 7
 );
 ```
