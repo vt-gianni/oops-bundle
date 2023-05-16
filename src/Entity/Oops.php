@@ -20,16 +20,29 @@ class Oops
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Url(
+     *     message = "The url '{{ value }}' is not a valid url.",
+     *     protocols = {"http", "https", "ftp"}
+     * )
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "The url cannot be longer than {{ limit }} characters"
+     * )
      */
     private ?string $url;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\PositiveOrZero(message="The error must be a positive number or zero.")
      */
     private ?int $error;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\Length(
+     *     max = 1000,
+     *     maxMessage = "The error message cannot be longer than {{ limit }} characters."
+     * )
      */
     private ?string $errorMessage;
 
