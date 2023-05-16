@@ -16,6 +16,7 @@ Oops Bundle is a Symfony bundle allowing you to manage the error returns of your
 php: >=7.4
 doctrine/orm: >=2.13
 symfony/framework-bundle: >=5.4
+symfony/validator: >=4.4
 ```
 ## Get started
 
@@ -61,5 +62,27 @@ $this->oopsService->reportError(
     $headers, // optional array
     $bodyContent, // optional array
     $responseContent // optional array
+);
+```
+
+## Filter errors
+
+To filter errors, please use the filterErrors method of OopsBundle:
+
+```php
+$this->oopsService->filterErrors(
+    $errorCode, // optional int
+    $desc, // optional bool, default true
+    $limit, // optional int, default 10
+);
+```
+
+## Count errors
+
+To count errors, please use the countErrors method of OopsBundle:
+
+```php
+$this->oopsService->filterErrors(
+    $nbDays, // optional int, default 7
 );
 ```
