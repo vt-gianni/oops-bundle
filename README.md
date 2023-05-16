@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="asset/logo.png" width="300" title="Logo" alt="Logo">
+  <img src="asset/logo.png" width="250" title="Logo" alt="Logo">
 </p>
 
 # About
