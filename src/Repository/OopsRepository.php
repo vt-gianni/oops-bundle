@@ -42,40 +42,24 @@ class OopsRepository extends ServiceEntityRepository
 
     /**
      * @param DateTime $date
+     * @param int|null $errorCode
      * @return mixed
      */
-    public function getNbErrors(DateTime $date)
+    public function getNbErrors(DateTime $date, ?int $errorCode = null)
     {
-        return $this->createQueryBuilder('o')
-        ->select('count(o.id)')
-        ->where('o.incidentDate > :date')
-        ->setParameter('date', $date)
-        ->getQuery()
-        ->getSingleScalarResult();
+        $query = $this->createQueryBuilder('o')
+            ->select('count(o.id)')
+            ->where('o.incidentDate > :date')
+            ->setParameter('date', $date)
+        ;
+
+        if ($errorCode) {
+            $query
+                ->andWhere('o.error = :error')
+                ->setParameter('error', $errorCode)
+            ;
+        }
+
+        return $query->getQuery()->getSingleScalarResult();
     }
-
-//    /**
-//     * @return Oops[] Returns an array of Oops objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('o')
-//            ->andWhere('o.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('o.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Oops
-//    {
-//        return $this->createQueryBuilder('o')
-//            ->andWhere('o.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
 }

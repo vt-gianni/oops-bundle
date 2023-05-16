@@ -71,12 +71,13 @@ class OopsService
 
     /**
      * @param int $nbDays
+     * @param int|null $errorCode
      * @return int
      */
-    public function countErrors(int $nbDays = 7): int
+    public function countErrors(int $nbDays = 7, ?int $errorCode = null): int
     {
         $date = (new \DateTime())->modify('-' . $nbDays . ' days');
 
-        return $this->repository->getNbErrors($date);
+        return $this->repository->getNbErrors($date, $errorCode);
     }
 }
