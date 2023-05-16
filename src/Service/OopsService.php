@@ -56,26 +56,26 @@ class OopsService
 
     /**
      * @param int|null $errorCode
-     * @param string|null $order
+     * @param bool|null $desc
      * @param int $limit
      * @return array
      */
-    public function getErrors(?int $errorCode = null, ?string $order = 'DESC', int $limit = 10): array
+    public function filterErrors(?int $errorCode = null, ?bool $desc = true, int $limit = 10): array
     {
         return $this->repository->findBy(
             $errorCode ? ['error' => $errorCode] : [],
-            ['incidentDate' => $order],
+            ['incidentDate' => $desc ? 'DESC' : 'ASC'],
             $limit
         );
     }
 
     /**
-     * @param int $nb
+     * @param int $nbDays
      * @return int
      */
-    public function getNbErrors(int $nb = 7): int
+    public function countErrors(int $nbDays = 7): int
     {
-        $date = (new \DateTime())->modify('-' . $nb . ' days');
+        $date = (new \DateTime())->modify('-' . $nbDays . ' days');
 
         return $this->repository->getNbErrors($date);
     }

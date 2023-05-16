@@ -9,3 +9,4 @@
 /.env
 /migrations/
 /public/
+/composer.lock
