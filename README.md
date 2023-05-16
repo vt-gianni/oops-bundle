@@ -8,6 +8,17 @@ Oops Bundle is a Symfony bundle allowing you to manage the error returns of your
 
 # Install
 
+## Requirements
+
+:warning: Here are the requirements for using Oops Bundle:
+
+```sh
+php: >=7.4
+doctrine/orm: >=2.13
+symfony/framework-bundle: >=5.4
+```
+## Get started
+
 To get started with Oops Bundle, use Composer to add the package to your project's dependencies:
 
 ```sh
