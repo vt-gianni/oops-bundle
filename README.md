@@ -72,7 +72,7 @@ That's it! If the API returns a status code greater than or equal to 400, it wil
 
 ## Manual error logging
 
-Oops Bundle also gives you direct access to the methods used to interact with the oops table.
+Oops Bundle also gives you direct access to some methods used to interact with the oops table.
 
 This allows you to choose which specific data to record or to manage specific error cases.
 
