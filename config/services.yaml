@@ -30,6 +30,6 @@ services:
         autowire: true
         autoconfigure: true
 
-    VTGianni\OopsBundle\Service\HttpClientWrapper:
+    VTGianni\OopsBundle\Service\OopsClient:
         autowire: true
         autoconfigure: true

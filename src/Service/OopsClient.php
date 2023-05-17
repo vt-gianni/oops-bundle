@@ -6,14 +6,13 @@ namespace VTGianni\OopsBundle\Service;
 
 use Exception;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-class HttpClientWrapper
+class OopsClient
 {
     private HttpClientInterface $client;
     private OopsService $service;
@@ -33,16 +32,13 @@ class HttpClientWrapper
      * @throws ClientExceptionInterface
      * @throws RedirectionExceptionInterface
      * @throws ServerExceptionInterface
-     * @throws DecodingExceptionInterface
      * @throws Exception
      */
     public function request(string $method, string $url, array $options = []): ResponseInterface
     {
         $response = $this->client->request($method, $url, $options);
 
-        // Here you can do something with the response, for example:
         if ($response->getStatusCode() >= 400) {
-            // Report the error.
             $this->service->reportError(
                 $url,
                 $response->getStatusCode(),
