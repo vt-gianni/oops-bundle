@@ -7,9 +7,9 @@ use VTGianni\OopsBundle\Service\OopsService;
 
 class APIListener
 {
-    private $service;
-    private $apiUrl;
-    private $apiListen;
+    private OopsService $service;
+    private string $apiUrl;
+    private bool $apiListen;
 
     public function __construct(OopsService $service, string $apiUrl, string $apiListen)
     {
@@ -29,8 +29,8 @@ class APIListener
                 $response->getStatusCode(),
                 "Error {$response->getStatusCode()}",
                 $request->headers->all(),
-                $request->getContent(),
-                $response->getContent()
+                $request->toArray(),
+                [$response->getContent()]
             );
         }
     }
