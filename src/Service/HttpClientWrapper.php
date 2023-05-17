@@ -49,7 +49,7 @@ class HttpClientWrapper
                 "Error {$response->getStatusCode()}",
                 $options['headers'] ?? [],
                 $options['body'] ?? [],
-                $response->toArray()
+                [$response->getContent(false)]
             );
         }
 
