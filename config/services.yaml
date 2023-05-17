@@ -37,4 +37,4 @@ services:
             $apiUrl: '%api_url%'
             $apiListen: '%api_listen%'
         tags:
-            - { name: kernel.event_listener, event: kernel.response }
+            - { name: kernel.event_listener, event: kernel.response, priority: 100 }
