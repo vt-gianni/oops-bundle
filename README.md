@@ -17,6 +17,7 @@ php: >=7.4
 doctrine/orm: >=2.13
 symfony/framework-bundle: >=5.4
 symfony/validator: >=4.4
+symfony/http-client: >=4.4
 ```
 ## Get started
 
@@ -33,6 +34,47 @@ php bin/console d:s:u --force
 ```
 
 # How to use it
+
+There are two ways to use Oops Bundle: automatic or manual error logging. 
+
+## Automatic error logging
+
+Oops Bundle provides a wrapper for HttpClient requests.
+
+This allows you to make your API calls without worrying about errors as they will be automatically recorded in your database "oops" table.
+
+Start by injecting OopsClient into your class:
+
+```php
+use VTGianni\OopsBundle\Service\OopsClient;
+
+class MyService
+{
+    private $oopsClient;
+
+    public function __construct(OopsClient $oopsClient)
+    {
+        $this->oopsClient = $oopsClient;
+    }
+}
+```
+
+Then make your API calls in the same way as with HttpClient:
+
+```php
+$this->oopsClient->request(
+    'GET',
+    'https://pokeapi.co/api/v2/pokemon/ditto'
+);
+```
+
+That's it! If the API returns an error code greater than or equal to 400, it will be automatically recorded in your "oops" table.
+
+## Manual error logging
+
+Oops Bundle also gives you direct access to the methods used to interact with the oops table.
+
+This allows you to choose which specific data to record or to manage specific error cases.
 
 Start by injecting OopsService into your class:
 
