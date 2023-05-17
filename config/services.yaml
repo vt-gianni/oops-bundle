@@ -33,7 +33,7 @@ services:
 
     VTGianni\OopsBundle\Listener\APIListener:
         arguments:
-            $oopsService: '@VTGianni\OopsBundle\Service\OopsService'
+            $service: '@VTGianni\OopsBundle\Service\OopsService'
             $apiUrl: '%api_url%'
             $apiListen: '%api_listen%'
         tags:
