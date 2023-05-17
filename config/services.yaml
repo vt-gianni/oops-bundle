@@ -4,8 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    api_url: '%env(API_URL)%'
-    api_listen: '%env(API_LISTEN)'
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -31,10 +30,6 @@ services:
         autowire: true
         autoconfigure: true
 
-    VTGianni\OopsBundle\Listener\APIListener:
-        arguments:
-            $service: '@VTGianni\OopsBundle\Service\OopsService'
-            $apiUrl: '%api_url%'
-            $apiListen: '%api_listen%'
-        tags:
-            - { name: kernel.event_listener, event: kernel.response, priority: 100 }
+    VTGianni\OopsBundle\Service\HttpClientWrapper:
+        autowire: true
+        autoconfigure: true
