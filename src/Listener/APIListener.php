@@ -1,6 +1,6 @@
 <?php
 
-namespace VTGianni\OopsBundle\Service;
+namespace VTGianni\OopsBundle\Listener;
 
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use VTGianni\OopsBundle\Service\OopsService;
