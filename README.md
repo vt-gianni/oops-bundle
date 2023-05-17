@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="asset/logo.png" width="300" title="Logo" alt="Logo">
+  <img src="asset/logo.png" width="250" title="Logo" alt="Logo">
 </p>
 
 # About
@@ -73,7 +73,7 @@ To filter errors, please use the filterErrors method of OopsBundle:
 $this->oopsService->filterErrors(
     $errorCode, // optional int
     $desc, // optional bool, default true
-    $limit, // optional int, default 10
+    $limit // optional int, default 10
 );
 ```
 
@@ -84,5 +84,6 @@ To count errors, please use the countErrors method of OopsBundle:
 ```php
 $this->oopsService->countErrors(
     $nbDays, // optional int, default 7
+    $errorCode // opitonal int
 );
 ```
