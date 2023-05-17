@@ -68,7 +68,7 @@ $this->oopsClient->request(
 );
 ```
 
-That's it! If the API returns an error code greater than or equal to 400, it will be automatically recorded in your "oops" table.
+That's it! If the API returns a status code greater than or equal to 400, it will be automatically recorded in your "oops" table.
 
 ## Manual error logging
 
